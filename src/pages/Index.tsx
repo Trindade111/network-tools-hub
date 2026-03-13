@@ -27,7 +27,7 @@ const Index = () => {
               </span>
             </h1>
             <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-              Ferramentas criadas para quem trabalha com cortes e conteúdo curto.
+              Ferramentas profissionais para clipadores
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
