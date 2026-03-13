@@ -9,102 +9,91 @@ const Login = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background text-foreground">
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.10),transparent_40%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--foreground)/0.02)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground)/0.02)_1px,transparent_1px)] bg-[size:42px_42px] opacity-[0.2]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,hsl(var(--primary)/0.07),transparent_60%)]" />
       </div>
-      <div className="relative z-10 w-full max-w-md px-6 animate-scale-in">
+      <div className="relative z-10 w-full max-w-sm px-6 animate-scale-in">
         {/* Logo */}
-        <Link to="/" className="mb-10 flex flex-col items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/40 bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground shadow-[var(--gold-glow-lg)]">
-            <span className="text-3xl font-black">N</span>
+        <Link to="/" className="mb-12 flex flex-col items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground shadow-[var(--gold-glow)]">
+            <span className="text-lg font-black">N</span>
           </div>
-          <div className="text-center">
-            <div className="text-[11px] uppercase tracking-[0.4em] text-primary/80">Network</div>
-            <div className="text-xl font-bold tracking-wide">Ferramentas</div>
-          </div>
+          <span className="text-sm font-semibold tracking-tight">Network Ferramentas</span>
         </Link>
 
         {/* Card */}
-        <div className="rounded-[28px] border border-foreground/10 bg-card p-8 shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.08)]">
-          <h1 className="text-center text-2xl font-black">
-            {isSignUp ? "Criar conta" : "Entrar"}
+        <div className="rounded-xl border border-border bg-surface p-6">
+          <h1 className="text-center text-lg font-semibold tracking-tight">
+            {isSignUp ? "Criar conta" : "Entrar na sua conta"}
           </h1>
-          <p className="mt-2 text-center text-sm text-muted-foreground">
+          <p className="mt-1 text-center text-[13px] text-muted-foreground">
             {isSignUp
               ? "Preencha seus dados para começar."
-              : "Acesse sua conta para usar as ferramentas."}
+              : "Use seu e-mail e senha para acessar."}
           </p>
 
-          <form className="mt-7 space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="mt-6 space-y-3.5" onSubmit={(e) => e.preventDefault()}>
             {isSignUp && (
               <div>
-                <label className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
                   Nome
                 </label>
                 <input
                   type="text"
                   placeholder="Seu nome"
-                  className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 transition-colors focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+                  className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
                 />
               </div>
             )}
             <div>
-              <label className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
                 E-mail
               </label>
               <input
                 type="email"
                 placeholder="seu@email.com"
-                className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 text-sm text-foreground placeholder:text-foreground/25 transition-colors focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+                className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
               />
             </div>
             <div>
-              <label className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Senha
-              </label>
+              <div className="mb-1.5 flex items-center justify-between">
+                <label className="text-xs font-medium text-muted-foreground">
+                  Senha
+                </label>
+                {!isSignUp && (
+                  <button type="button" className="text-[11px] text-primary transition hover:underline">
+                    Esqueceu?
+                  </button>
+                )}
+              </div>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  className="w-full rounded-xl border border-foreground/10 bg-foreground/[0.04] px-4 py-3 pr-11 text-sm text-foreground placeholder:text-foreground/25 transition-colors focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/20"
+                  className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 pr-10 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition hover:text-foreground"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors duration-150 hover:text-foreground"
                 >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
               </div>
             </div>
 
-            {!isSignUp && (
-              <div className="text-right">
-                <button type="button" className="text-xs text-primary hover:underline">
-                  Esqueceu a senha?
-                </button>
-              </div>
-            )}
-
             <button
               type="submit"
-              className="w-full rounded-xl bg-gradient-to-r from-gold-300 to-gold-500 px-6 py-3 font-semibold text-primary-foreground shadow-[var(--gold-glow)] transition-all duration-300 hover:shadow-[var(--gold-glow-lg)] hover:scale-[1.01] active:scale-[0.99]"
+              className="w-full rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:shadow-[var(--gold-glow)] active:scale-[0.99]"
             >
               {isSignUp ? "Criar conta" : "Entrar"}
             </button>
           </form>
 
-          <div className="mt-6 flex items-center gap-3">
-            <div className="h-px flex-1 bg-foreground/10" />
-            <span className="text-xs text-muted-foreground">ou</span>
-            <div className="h-px flex-1 bg-foreground/10" />
-          </div>
-
-          <div className="mt-5 text-center text-sm text-muted-foreground">
-            {isSignUp ? "Já tem uma conta?" : "Ainda não tem conta?"}{" "}
+          <div className="mt-5 text-center text-[13px] text-muted-foreground">
+            {isSignUp ? "Já tem uma conta?" : "Não tem conta?"}{" "}
             <button
               onClick={() => setIsSignUp(!isSignUp)}
-              className="font-semibold text-primary transition hover:underline"
+              className="font-medium text-primary transition hover:underline"
             >
               {isSignUp ? "Entrar" : "Criar conta"}
             </button>
