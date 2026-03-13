@@ -15,7 +15,7 @@ const Dashboard = () => {
             <h1 className="text-3xl font-black">Dashboard</h1>
             <p className="mt-1 text-sm text-muted-foreground">Suas ferramentas disponíveis</p>
           </div>
-          <div className="rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs text-green-300">
+          <div className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">
             Online
           </div>
         </div>
