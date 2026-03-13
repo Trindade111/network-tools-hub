@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { tools } from "@/lib/tools";
+import { categories, getToolsByCategory } from "@/lib/tools";
 import { ArrowRight, Crown, Clock, Zap, TrendingUp } from "lucide-react";
 
 const recentActivity = [
@@ -17,7 +17,6 @@ const Dashboard = () => {
       </div>
       <Header />
       <main className="relative z-10 mx-auto max-w-7xl px-6 py-8 lg:px-10 lg:py-10">
-        {/* Page header */}
         <div className="mb-8 flex items-end justify-between animate-fade-in">
           <div>
             <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
@@ -32,7 +31,6 @@ const Dashboard = () => {
           </Link>
         </div>
 
-        {/* Metric cards */}
         <div className="mb-8 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3 animate-fade-in opacity-0 [animation-delay:80ms]">
           {[
             { icon: Crown, label: "Plano atual", value: "Free" },
@@ -51,37 +49,40 @@ const Dashboard = () => {
           ))}
         </div>
 
-        {/* Main grid */}
         <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
-          {/* Tools */}
           <div className="animate-fade-in opacity-0 [animation-delay:160ms]">
-            <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Ferramentas</h2>
-            <div className="grid gap-2 sm:grid-cols-2">
-              {tools.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <Link
-                    key={tool.slug}
-                    to={`/ferramenta/${tool.slug}`}
-                    className="group flex items-center gap-3 rounded-xl border border-border bg-surface p-4 transition-all duration-200 hover:bg-surface-hover hover:border-foreground/[0.12]"
-                  >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-primary/[0.07] text-primary transition-colors duration-200 group-hover:bg-primary/[0.12]">
-                      <Icon size={16} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-medium">{tool.name}</h3>
-                      <p className="text-xs text-muted-foreground truncate">{tool.description}</p>
-                    </div>
-                    <ArrowRight size={13} className="shrink-0 text-foreground/15 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
-                  </Link>
-                );
-              })}
-            </div>
+            {categories.map((cat, catIdx) => {
+              const catTools = getToolsByCategory(cat.key);
+              return (
+                <div key={cat.key} className={catIdx > 0 ? "mt-6" : ""}>
+                  <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">{cat.label}</h2>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {catTools.map((tool) => {
+                      const Icon = tool.icon;
+                      return (
+                        <Link
+                          key={tool.slug}
+                          to={`/ferramenta/${tool.slug}`}
+                          className="group flex items-center gap-3 rounded-xl border border-border bg-surface p-4 transition-all duration-200 hover:bg-surface-hover hover:border-foreground/[0.12]"
+                        >
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-primary/[0.07] text-primary transition-colors duration-200 group-hover:bg-primary/[0.12]">
+                            <Icon size={16} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-sm font-medium">{tool.name}</h3>
+                            <p className="text-xs text-muted-foreground truncate">{tool.description}</p>
+                          </div>
+                          <ArrowRight size={13} className="shrink-0 text-foreground/15 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary" />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-4 animate-fade-in opacity-0 [animation-delay:240ms]">
-            {/* Recent activity */}
             <div>
               <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Atividade recente</h2>
               <div className="rounded-xl border border-border bg-surface">
@@ -107,7 +108,6 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Upgrade */}
             <div className="rounded-xl border border-primary/15 bg-gradient-to-br from-primary/[0.06] to-transparent p-4">
               <h3 className="text-sm font-semibold">Acesso ilimitado</h3>
               <p className="mt-1 text-xs text-muted-foreground leading-relaxed">

@@ -20,10 +20,9 @@ export const Header = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground">
             <span className="text-sm font-black tracking-tight">N</span>
           </div>
-          <span className="text-sm font-semibold tracking-tight">Network Ferramentas</span>
+          <span className="text-sm font-semibold tracking-tight">Networking Ferramentas</span>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
             const isActive = location.pathname === item.to;
@@ -50,7 +49,6 @@ export const Header = () => {
           </Link>
         </nav>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden text-muted-foreground transition hover:text-foreground"
@@ -59,7 +57,6 @@ export const Header = () => {
         </button>
       </div>
 
-      {/* Mobile nav */}
       {mobileOpen && (
         <div className="border-t border-border bg-background/98 backdrop-blur-2xl md:hidden animate-fade-in">
           <div className="space-y-0.5 px-4 py-3">
