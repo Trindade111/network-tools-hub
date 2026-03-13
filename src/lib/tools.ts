@@ -20,15 +20,52 @@ export interface Tool {
   resultLabel: string;
   inputType: "text" | "textarea" | "file" | "custom";
   icon: LucideIcon;
-  category: "criacao" | "edicao" | "analise";
+  category: "edicao" | "criacao" | "analise";
 }
 
 export const tools: Tool[] = [
+  // Edição e Cortes
+  {
+    slug: "downloader",
+    name: "Downloader de Vídeos",
+    description: "Baixe vídeos de TikTok, Instagram e YouTube rapidamente e sem anúncios.",
+    inputLabel: "Link do vídeo",
+    inputPlaceholder: "Cole o link aqui...",
+    actionLabel: "Baixar",
+    resultLabel: "Resultado",
+    inputType: "text",
+    icon: Download,
+    category: "edicao",
+  },
+  {
+    slug: "ia-cortes",
+    name: "IA que encontra os melhores cortes",
+    description: "Envie um vídeo e a inteligência artificial identifica automaticamente os melhores momentos para criar cortes.",
+    inputLabel: "Vídeo",
+    inputPlaceholder: "Cole o link ou envie o arquivo...",
+    actionLabel: "Analisar",
+    resultLabel: "Cortes encontrados",
+    inputType: "text",
+    icon: Scissors,
+    category: "edicao",
+  },
+  {
+    slug: "transcricao",
+    name: "IA de Transcrição de Vídeos",
+    description: "Envie um vídeo e receba a transcrição completa do conteúdo automaticamente.",
+    inputLabel: "Link ou arquivo",
+    inputPlaceholder: "Cole o link do vídeo...",
+    actionLabel: "Transcrever",
+    resultLabel: "Transcrição",
+    inputType: "text",
+    icon: FileText,
+    category: "edicao",
+  },
   // Criação de Conteúdo
   {
     slug: "gerador-titulos",
     name: "IA Geradora de Títulos",
-    description: "Digite o assunto do vídeo e a inteligência artificial gera títulos chamativos e virais.",
+    description: "Digite o assunto do vídeo e a inteligência artificial gera títulos virais.",
     inputLabel: "Assunto do vídeo",
     inputPlaceholder: "Descreva o assunto...",
     actionLabel: "Gerar títulos",
@@ -52,7 +89,7 @@ export const tools: Tool[] = [
   {
     slug: "gerador-capas",
     name: "Gerador de Capas para Vídeos",
-    description: "Ferramenta para criar capas chamativas para vídeos e cortes em formato vertical (9:16) ou horizontal (16:9).",
+    description: "Ferramenta para criar capas chamativas para vídeos e cortes.",
     inputLabel: "Descrição da capa",
     inputPlaceholder: "Descreva a capa que deseja...",
     actionLabel: "Criar capa",
@@ -61,48 +98,11 @@ export const tools: Tool[] = [
     icon: Palette,
     category: "criacao",
   },
-  // Edição e Corte
-  {
-    slug: "downloader",
-    name: "Downloader de Vídeos",
-    description: "Baixe vídeos de TikTok, Instagram e YouTube rapidamente e sem anúncios.",
-    inputLabel: "Link do vídeo",
-    inputPlaceholder: "Cole o link aqui...",
-    actionLabel: "Baixar",
-    resultLabel: "Resultado",
-    inputType: "text",
-    icon: Download,
-    category: "edicao",
-  },
-  {
-    slug: "ia-cortes",
-    name: "IA que encontra os melhores cortes",
-    description: "Envie um vídeo e a inteligência artificial identifica automaticamente os trechos mais interessantes para criar cortes.",
-    inputLabel: "Vídeo",
-    inputPlaceholder: "Cole o link ou envie o arquivo...",
-    actionLabel: "Analisar",
-    resultLabel: "Cortes encontrados",
-    inputType: "text",
-    icon: Scissors,
-    category: "edicao",
-  },
-  {
-    slug: "transcricao",
-    name: "IA de Transcrição de Vídeos",
-    description: "Envie um vídeo e receba a transcrição completa do conteúdo automaticamente.",
-    inputLabel: "Link ou arquivo",
-    inputPlaceholder: "Cole o link do vídeo...",
-    actionLabel: "Transcrever",
-    resultLabel: "Transcrição",
-    inputType: "text",
-    icon: FileText,
-    category: "edicao",
-  },
   // Análise de Conteúdo
   {
     slug: "calculadora-engajamento",
     name: "Calculadora de Taxa de Engajamento",
-    description: "Descubra rapidamente a taxa de engajamento de um vídeo com base nas visualizações e curtidas.",
+    description: "Descubra rapidamente a taxa de engajamento de um vídeo.",
     inputLabel: "",
     inputPlaceholder: "",
     actionLabel: "Calcular engajamento",
@@ -114,7 +114,7 @@ export const tools: Tool[] = [
   {
     slug: "calculadora-rpm",
     name: "Calculadora de RPM",
-    description: "Descubra quanto um vídeo pode gerar de receita com base no RPM e nas visualizações.",
+    description: "Descubra quanto um vídeo pode gerar de receita com base nas visualizações.",
     inputLabel: "",
     inputPlaceholder: "",
     actionLabel: "Calcular receita",
@@ -126,8 +126,8 @@ export const tools: Tool[] = [
 ];
 
 export const categories = [
+  { key: "edicao" as const, label: "Edição e Cortes" },
   { key: "criacao" as const, label: "Criação de Conteúdo" },
-  { key: "edicao" as const, label: "Edição e Corte" },
   { key: "analise" as const, label: "Análise de Conteúdo" },
 ];
 

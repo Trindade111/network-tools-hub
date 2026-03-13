@@ -16,7 +16,12 @@ const Login = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground shadow-[var(--gold-glow)]">
             <span className="text-lg font-black">N</span>
           </div>
-          <span className="text-sm font-semibold tracking-tight">Networking Ferramentas</span>
+          <span className="text-sm font-semibold tracking-tight">
+            Networking{" "}
+            <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 bg-clip-text text-transparent">
+              Cortes
+            </span>
+          </span>
         </Link>
 
         <div className="rounded-xl border border-border bg-surface p-6">
@@ -80,7 +85,11 @@ const Login = () => {
             </button>
           </form>
 
-          <div className="mt-5 text-center text-[13px] text-muted-foreground">
+          <p className="mt-4 text-center text-[11px] text-muted-foreground/60">
+            Faça login para liberar uso ilimitado das ferramentas.
+          </p>
+
+          <div className="mt-4 text-center text-[13px] text-muted-foreground">
             {isSignUp ? "Já tem uma conta?" : "Não tem conta?"}{" "}
             <button
               onClick={() => setIsSignUp(!isSignUp)}

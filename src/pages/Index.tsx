@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { categories, getToolsByCategory } from "@/lib/tools";
-import { ArrowRight, Crown, Sparkles } from "lucide-react";
+import { ArrowRight, Crown, Sparkles, Check } from "lucide-react";
 
-const NETWORKING_CLUB_URL = "https://networkingclub.com";
+const NETWORKING_CLUB_URL = "https://networkingclub.pro";
 
 const Index = () => {
   return (
@@ -23,7 +23,7 @@ const Index = () => {
             <h1 className="text-[clamp(2.25rem,5vw,4rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-balance">
               Networking{" "}
               <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 bg-clip-text text-transparent">
-                Ferramentas
+                Cortes
               </span>
             </h1>
             <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
@@ -85,7 +85,57 @@ const Index = () => {
           })}
         </section>
 
-        {/* Networking Club integration */}
+        {/* Desbloqueie tudo com o Networking Club */}
+        <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
+          <div className="text-center mb-10 animate-fade-in">
+            <h2 className="text-2xl font-semibold tracking-tight">Desbloqueie tudo com o Networking Club</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 max-w-3xl mx-auto animate-fade-in opacity-0 [animation-delay:100ms]">
+            {/* Free */}
+            <div className="flex flex-col rounded-xl border border-border bg-surface p-6">
+              <h3 className="text-base font-semibold">Plano Free</h3>
+              <ul className="mt-5 space-y-2.5 flex-1">
+                {["Uso limitado", "Limite diário", "Acesso básico"].map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
+                    <Check size={13} strokeWidth={2.5} className="text-foreground/40" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Club */}
+            <div className="relative flex flex-col rounded-xl border border-primary/30 bg-gradient-to-b from-primary/[0.06] via-surface to-surface p-6 shadow-[0_0_32px_-8px_hsl(var(--primary)/0.12)]">
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-gold-300 to-gold-500 px-3 py-0.5 text-[11px] font-semibold text-primary-foreground">
+                <Sparkles size={10} />
+                Recomendado
+              </div>
+              <h3 className="text-base font-semibold">Networking Club</h3>
+              <ul className="mt-5 space-y-2.5 flex-1">
+                {[
+                  "Uso ilimitado",
+                  "Acesso completo às ferramentas",
+                  "Prioridade em novos recursos",
+                ].map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
+                    <Check size={13} strokeWidth={2.5} className="text-primary" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={NETWORKING_CLUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:shadow-[var(--gold-glow)]"
+              >
+                Entrar no Networking Club
+                <ArrowRight size={13} />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Ecossistema Networking */}
         <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
           <div className="rounded-xl border border-primary/15 bg-gradient-to-r from-primary/[0.06] to-transparent p-8 lg:p-10">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
@@ -98,7 +148,7 @@ const Index = () => {
                   Parte do Networking Club
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  As ferramentas fazem parte do ecossistema Networking Club. Ao se tornar membro você desbloqueia:
+                  As ferramentas fazem parte do ecossistema Networking. Ao se tornar membro você desbloqueia:
                 </p>
                 <ul className="mt-4 space-y-2">
                   {[
@@ -136,14 +186,14 @@ const Index = () => {
                   Pronto para começar?
                 </h2>
                 <p className="mt-2 max-w-md text-sm text-muted-foreground">
-                  Crie sua conta gratuitamente e acesse todas as ferramentas.
+                  Use as ferramentas gratuitamente ou faça login para acesso ilimitado.
                 </p>
               </div>
               <Link
                 to="/login"
                 className="group inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:shadow-[var(--gold-glow)]"
               >
-                Criar conta grátis
+                Começar agora
                 <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>

@@ -20,7 +20,12 @@ export const Header = () => {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground">
             <span className="text-sm font-black tracking-tight">N</span>
           </div>
-          <span className="text-sm font-semibold tracking-tight">Networking Ferramentas</span>
+          <span className="text-sm font-semibold tracking-tight">
+            Networking{" "}
+            <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 bg-clip-text text-transparent">
+              Cortes
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
