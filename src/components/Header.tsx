@@ -6,7 +6,7 @@ const navItems = [
   { label: "Ferramentas", to: "/" },
   { label: "Dashboard", to: "/dashboard" },
   { label: "Planos", to: "/planos" },
-  { label: "Minha conta", to: "/membros" },
+  { label: "Conta", to: "/membros" },
 ];
 
 export const Header = () => {
@@ -14,39 +14,37 @@ export const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-30 border-b border-foreground/10 bg-background/65 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-primary/40 bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground shadow-[var(--gold-glow)]">
-            <span className="text-xl font-black">N</span>
+    <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur-2xl backdrop-saturate-150">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 lg:px-10">
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground">
+            <span className="text-sm font-black tracking-tight">N</span>
           </div>
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.35em] text-primary/80">Network</div>
-            <div className="text-base font-semibold tracking-wide">Ferramentas</div>
-          </div>
+          <span className="text-sm font-semibold tracking-tight">Network Ferramentas</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 md:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
             const isActive = location.pathname === item.to;
             return (
               <Link
                 key={item.label}
                 to={item.to}
-                className={`rounded-lg px-3.5 py-2 text-sm transition-all duration-200 ${
+                className={`rounded-md px-3 py-1.5 text-[13px] transition-all duration-150 ${
                   isActive
-                    ? "bg-primary/15 font-semibold text-primary"
-                    : "text-foreground/60 hover:bg-foreground/5 hover:text-foreground"
+                    ? "bg-foreground/[0.08] font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {item.label}
               </Link>
             );
           })}
+          <div className="ml-3 h-4 w-px bg-border" />
           <Link
             to="/login"
-            className="ml-2 rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:scale-[1.02]"
+            className="ml-3 rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-3.5 py-1.5 text-[13px] font-semibold text-primary-foreground transition-all duration-200 hover:shadow-[var(--gold-glow)]"
           >
             Entrar
           </Link>
@@ -55,16 +53,16 @@ export const Header = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground/80 transition hover:text-foreground"
+          className="md:hidden text-muted-foreground transition hover:text-foreground"
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="border-t border-foreground/10 bg-background/95 backdrop-blur-xl md:hidden animate-fade-in">
-          <div className="mx-auto max-w-7xl space-y-1 px-6 py-4">
+        <div className="border-t border-border bg-background/98 backdrop-blur-2xl md:hidden animate-fade-in">
+          <div className="space-y-0.5 px-4 py-3">
             {navItems.map((item) => {
               const isActive = location.pathname === item.to;
               return (
@@ -72,10 +70,10 @@ export const Header = () => {
                   key={item.label}
                   to={item.to}
                   onClick={() => setMobileOpen(false)}
-                  className={`block rounded-lg px-4 py-2.5 text-sm transition ${
+                  className={`block rounded-lg px-3 py-2 text-sm transition ${
                     isActive
-                      ? "bg-primary/15 font-semibold text-primary"
-                      : "text-foreground/60 hover:bg-foreground/5"
+                      ? "bg-foreground/[0.08] font-medium text-foreground"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {item.label}
@@ -85,7 +83,7 @@ export const Header = () => {
             <Link
               to="/login"
               onClick={() => setMobileOpen(false)}
-              className="mt-2 block rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
+              className="mt-2 block rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-3 py-2 text-center text-sm font-semibold text-primary-foreground"
             >
               Entrar
             </Link>

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { Check, Star } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
 const plans = [
   {
     name: "Free",
     price: "R$ 0",
     period: "/mês",
-    description: "Para começar a explorar",
+    description: "Para explorar as ferramentas",
     features: [
       "Acesso a todas as ferramentas",
       "5 usos por dia",
@@ -20,15 +20,15 @@ const plans = [
     name: "Club",
     price: "R$ 29",
     period: "/mês",
-    description: "Para criadores que produzem diariamente",
+    description: "Para quem produz conteúdo todos os dias",
     features: [
-      "Acesso ilimitado",
+      "Uso ilimitado",
       "Todas as ferramentas",
       "Sem limites diários",
       "Suporte prioritário",
-      "Novidades em primeira mão",
+      "Acesso antecipado a novidades",
     ],
-    cta: "Assinar Club",
+    cta: "Assinar o Club",
     highlighted: true,
   },
 ];
@@ -37,47 +37,47 @@ const Planos = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.10),transparent_34%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,hsl(var(--primary)/0.07),transparent_60%)]" />
       </div>
       <Header />
-      <main className="relative z-10 mx-auto max-w-4xl px-6 py-16 lg:px-10">
+      <main className="relative z-10 mx-auto max-w-3xl px-6 py-16 lg:px-10 lg:py-20">
         <div className="text-center animate-fade-in">
-          <h1 className="text-4xl font-black">Escolha seu plano</h1>
-          <p className="mt-3 text-muted-foreground">
+          <h1 className="text-3xl font-semibold tracking-tight">Planos</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
             Comece grátis ou desbloqueie tudo com o Club.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 animate-fade-in opacity-0 [animation-delay:150ms]">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 animate-fade-in opacity-0 [animation-delay:120ms]">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-[28px] border p-7 transition-all duration-300 hover:-translate-y-0.5 ${
+              className={`relative flex flex-col rounded-xl border p-6 transition-all duration-200 ${
                 plan.highlighted
-                  ? "border-primary/30 bg-gradient-to-b from-primary/[0.08] to-foreground/[0.02] shadow-[0_0_40px_-12px_hsl(var(--primary)/0.15)]"
-                  : "border-foreground/10 bg-foreground/[0.035]"
+                  ? "border-primary/25 bg-gradient-to-b from-primary/[0.06] via-surface to-surface shadow-[0_0_32px_-8px_hsl(var(--primary)/0.1)]"
+                  : "border-border bg-surface"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gold-300 to-gold-500 px-4 py-1 text-xs font-bold text-primary-foreground">
-                  <Star size={12} />
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-gold-300 to-gold-500 px-3 py-0.5 text-[11px] font-semibold text-primary-foreground">
+                  <Sparkles size={10} />
                   Recomendado
                 </div>
               )}
               <div>
-                <h3 className="text-xl font-bold">{plan.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{plan.description}</p>
-                <div className="mt-5 flex items-baseline gap-1">
-                  <span className="text-4xl font-black">{plan.price}</span>
+                <h3 className="text-base font-semibold">{plan.name}</h3>
+                <p className="mt-0.5 text-[13px] text-muted-foreground">{plan.description}</p>
+                <div className="mt-5 flex items-baseline gap-0.5">
+                  <span className="text-3xl font-bold tracking-tight">{plan.price}</span>
                   <span className="text-sm text-muted-foreground">{plan.period}</span>
                 </div>
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-6 space-y-2.5">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                      <div className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                        plan.highlighted ? "bg-primary/20 text-primary" : "bg-foreground/10 text-foreground/50"
+                    <li key={f} className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
+                      <div className={`flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full ${
+                        plan.highlighted ? "text-primary" : "text-foreground/40"
                       }`}>
-                        <Check size={12} />
+                        <Check size={13} strokeWidth={2.5} />
                       </div>
                       {f}
                     </li>
@@ -85,10 +85,10 @@ const Planos = () => {
                 </ul>
               </div>
               <button
-                className={`mt-8 w-full rounded-2xl px-4 py-3.5 text-sm font-semibold transition-all duration-300 ${
+                className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
                   plan.highlighted
-                    ? "bg-gradient-to-r from-gold-300 to-gold-500 text-primary-foreground shadow-[var(--gold-glow)] hover:shadow-[var(--gold-glow-lg)] hover:scale-[1.01]"
-                    : "border border-foreground/10 bg-foreground/5 text-foreground/80 hover:border-primary/30 hover:bg-primary/10"
+                    ? "bg-gradient-to-r from-gold-300 to-gold-500 text-primary-foreground hover:shadow-[var(--gold-glow)]"
+                    : "border border-border bg-surface-hover text-foreground/80 hover:bg-foreground/[0.08]"
                 }`}
               >
                 {plan.cta}
