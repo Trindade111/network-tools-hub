@@ -25,7 +25,6 @@ const Membros = () => {
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2 animate-fade-in opacity-0 [animation-delay:80ms]">
-          {/* Plan */}
           <div className="rounded-xl border border-primary/15 bg-gradient-to-br from-primary/[0.05] to-surface p-5">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/15 bg-primary/[0.07] text-primary">
@@ -54,7 +53,6 @@ const Membros = () => {
             </Link>
           </div>
 
-          {/* Account */}
           <div className="rounded-xl border border-border bg-surface p-5">
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-foreground/[0.06] text-muted-foreground">
@@ -76,7 +74,6 @@ const Membros = () => {
           </div>
         </div>
 
-        {/* History */}
         <div className="mt-8 animate-fade-in opacity-0 [animation-delay:160ms]">
           <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Histórico de uso</h2>
           <div className="rounded-xl border border-border bg-surface">

@@ -1,35 +1,39 @@
-import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
+
+const NETWORKING_CLUB_URL = "https://networkingclub.com";
 
 const plans = [
   {
     name: "Free",
     price: "R$ 0",
     period: "/mês",
-    description: "Para explorar as ferramentas",
+    description: "Para começar a explorar",
     features: [
-      "Acesso a todas as ferramentas",
-      "5 usos por dia",
-      "Resultados padrão",
+      "Acesso limitado às ferramentas",
+      "Limite diário de uso",
+      "Acesso básico",
     ],
     cta: "Começar grátis",
+    ctaLink: "/login",
     highlighted: false,
+    external: false,
   },
   {
-    name: "Club",
+    name: "Ferramentas",
     price: "R$ 29",
     period: "/mês",
     description: "Para quem produz conteúdo todos os dias",
     features: [
-      "Uso ilimitado",
-      "Todas as ferramentas",
+      "Uso ilimitado das ferramentas",
+      "Acesso completo",
       "Sem limites diários",
-      "Suporte prioritário",
-      "Acesso antecipado a novidades",
+      "Prioridade nas ferramentas",
     ],
-    cta: "Assinar o Club",
+    cta: "Assinar via Networking Club",
+    ctaLink: NETWORKING_CLUB_URL,
     highlighted: true,
+    external: true,
   },
 ];
 
@@ -44,7 +48,7 @@ const Planos = () => {
         <div className="text-center animate-fade-in">
           <h1 className="text-3xl font-semibold tracking-tight">Planos</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Comece grátis ou desbloqueie tudo com o Club.
+            Comece grátis ou desbloqueie tudo com o plano Ferramentas.
           </p>
         </div>
 
@@ -74,25 +78,30 @@ const Planos = () => {
                 <ul className="mt-6 space-y-2.5">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
-                      <div className={`flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full ${
-                        plan.highlighted ? "text-primary" : "text-foreground/40"
-                      }`}>
-                        <Check size={13} strokeWidth={2.5} />
-                      </div>
+                      <Check size={13} strokeWidth={2.5} className={plan.highlighted ? "text-primary" : "text-foreground/40"} />
                       {f}
                     </li>
                   ))}
                 </ul>
               </div>
-              <button
-                className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                  plan.highlighted
-                    ? "bg-gradient-to-r from-gold-300 to-gold-500 text-primary-foreground hover:shadow-[var(--gold-glow)]"
-                    : "border border-border bg-surface-hover text-foreground/80 hover:bg-foreground/[0.08]"
-                }`}
-              >
-                {plan.cta}
-              </button>
+              {plan.external ? (
+                <a
+                  href={plan.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:shadow-[var(--gold-glow)]"
+                >
+                  {plan.cta}
+                  <ArrowRight size={13} />
+                </a>
+              ) : (
+                <a
+                  href={plan.ctaLink}
+                  className="mt-8 inline-flex w-full items-center justify-center rounded-lg border border-border bg-surface-hover px-4 py-2.5 text-sm font-semibold text-foreground/80 transition-all duration-200 hover:bg-foreground/[0.08]"
+                >
+                  {plan.cta}
+                </a>
+              )}
             </div>
           ))}
         </div>
