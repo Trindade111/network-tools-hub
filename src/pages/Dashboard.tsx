@@ -4,9 +4,9 @@ import { categories, getToolsByCategory } from "@/lib/tools";
 import { ArrowRight, Crown, Clock, Zap, TrendingUp } from "lucide-react";
 
 const recentActivity = [
-  { tool: "Downloader", action: "Download realizado", time: "2 min" },
-  { tool: "Gerador de Títulos", action: "10 títulos gerados", time: "15 min" },
-  { tool: "Transcrição", action: "Vídeo transcrito", time: "1h" },
+  { tool: "Gerador de Títulos", action: "Título gerado", time: "5 min" },
+  { tool: "Engajamento", action: "Engajamento calculado", time: "12 min" },
+  { tool: "RPM", action: "RPM calculado", time: "20 min" },
 ];
 
 const Dashboard = () => {
@@ -84,7 +84,7 @@ const Dashboard = () => {
 
           <div className="space-y-4 animate-fade-in opacity-0 [animation-delay:240ms]">
             <div>
-              <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Atividade recente</h2>
+              <h2 className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Histórico recente</h2>
               <div className="rounded-xl border border-border bg-surface">
                 <div className="divide-y divide-border">
                   {recentActivity.map((item, i) => (

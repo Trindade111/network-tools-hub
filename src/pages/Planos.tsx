@@ -1,12 +1,13 @@
 import { Header } from "@/components/Header";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
 
-const NETWORKING_CLUB_URL = "https://networkingclub.com";
+const NETWORKING_CLUB_URL = "https://networkingclub.pro";
 
 const plans = [
   {
     name: "Free",
     price: "R$ 0",
+    originalPrice: null,
     period: "/mês",
     description: "Para começar a explorar",
     features: [
@@ -21,7 +22,8 @@ const plans = [
   },
   {
     name: "Ferramentas",
-    price: "R$ 29",
+    price: "R$ 19,90",
+    originalPrice: "R$ 34,90",
     period: "/mês",
     description: "Para quem produz conteúdo todos os dias",
     features: [
@@ -48,7 +50,7 @@ const Planos = () => {
         <div className="text-center animate-fade-in">
           <h1 className="text-3xl font-semibold tracking-tight">Planos</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Comece grátis ou desbloqueie tudo com o plano Ferramentas.
+            O acesso ilimitado às ferramentas faz parte da assinatura do Networking Club.
           </p>
         </div>
 
@@ -71,7 +73,10 @@ const Planos = () => {
               <div>
                 <h3 className="text-base font-semibold">{plan.name}</h3>
                 <p className="mt-0.5 text-[13px] text-muted-foreground">{plan.description}</p>
-                <div className="mt-5 flex items-baseline gap-0.5">
+                <div className="mt-5 flex items-baseline gap-2">
+                  {plan.originalPrice && (
+                    <span className="text-sm text-muted-foreground line-through">{plan.originalPrice}</span>
+                  )}
                   <span className="text-3xl font-bold tracking-tight">{plan.price}</span>
                   <span className="text-sm text-muted-foreground">{plan.period}</span>
                 </div>
