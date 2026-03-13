@@ -1,3 +1,13 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  Download,
+  Type,
+  Image,
+  Scissors,
+  FileText,
+  Palette,
+} from "lucide-react";
+
 export interface Tool {
   slug: string;
   name: string;
@@ -7,6 +17,7 @@ export interface Tool {
   actionLabel: string;
   resultLabel: string;
   inputType: "text" | "textarea" | "file";
+  icon: LucideIcon;
 }
 
 export const tools: Tool[] = [
@@ -19,6 +30,7 @@ export const tools: Tool[] = [
     actionLabel: "Baixar",
     resultLabel: "Resultado",
     inputType: "text",
+    icon: Download,
   },
   {
     slug: "gerador-titulos",
@@ -29,6 +41,7 @@ export const tools: Tool[] = [
     actionLabel: "Gerar títulos",
     resultLabel: "Títulos gerados",
     inputType: "textarea",
+    icon: Type,
   },
   {
     slug: "gerador-imagens",
@@ -39,6 +52,7 @@ export const tools: Tool[] = [
     actionLabel: "Gerar imagem",
     resultLabel: "Imagens geradas",
     inputType: "textarea",
+    icon: Image,
   },
   {
     slug: "ia-cortes",
@@ -49,6 +63,7 @@ export const tools: Tool[] = [
     actionLabel: "Analisar",
     resultLabel: "Cortes encontrados",
     inputType: "text",
+    icon: Scissors,
   },
   {
     slug: "transcricao",
@@ -59,6 +74,7 @@ export const tools: Tool[] = [
     actionLabel: "Transcrever",
     resultLabel: "Transcrição",
     inputType: "text",
+    icon: FileText,
   },
   {
     slug: "gerador-capas",
@@ -69,6 +85,7 @@ export const tools: Tool[] = [
     actionLabel: "Criar capa",
     resultLabel: "Capas geradas",
     inputType: "textarea",
+    icon: Palette,
   },
 ];
 
