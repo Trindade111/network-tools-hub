@@ -125,6 +125,7 @@ const Dashboard = () => {
                   <Link
                     key={item.label}
                     to={item.to}
+                    state={{ from: "/dashboard" }}
                     className="rounded-xl border border-border bg-surface px-3 py-2.5 text-center text-xs font-medium text-muted-foreground transition-all duration-200 hover:bg-surface-hover hover:text-foreground hover:border-primary/15"
                   >
                     {item.label}
