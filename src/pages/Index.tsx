@@ -9,10 +9,8 @@ const NETWORKING_CLUB_URL = "https://networkingclub.pro";
 const NETWORKING_CORTES_URL = "https://networkingcortes.com";
 
 const upcomingTools = [
-  { icon: Wand2, name: "IA para gerar hooks virais" },
-  { icon: MessageSquare, name: "Gerador de roteiros para cortes" },
-  { icon: Rocket, name: "IA que identifica momentos virais em vídeos" },
-  { icon: Lightbulb, name: "Ferramentas avançadas para criadores de conteúdo curto" },
+  { icon: MessageSquare, name: "Gerador de roteiros", description: "Ferramenta de inteligência artificial que gera roteiros automaticamente com base em um tema ou ideia." },
+  { icon: Wand2, name: "Pré-edição automática de vídeo", description: "Ferramenta que pré-edita vídeos automaticamente, identificando os melhores momentos, removendo pausas de fala e cortando partes desnecessárias ou duplicadas do vídeo para agilizar o processo de edição." },
 ];
 
 const Index = () => {
