@@ -255,12 +255,15 @@ const Index = () => {
               {upcomingTools.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-center gap-3 rounded-xl border border-border/50 bg-background/50 p-4 transition-all duration-200 hover:border-primary/15 hover:bg-surface"
+                  className="flex flex-col gap-2.5 rounded-xl border border-border/50 bg-background/50 p-5 transition-all duration-200 hover:border-primary/15 hover:bg-surface"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/10 bg-primary/[0.05] text-primary/60">
-                    <item.icon size={16} />
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/10 bg-primary/[0.05] text-primary/60">
+                      <item.icon size={16} />
+                    </div>
+                    <h3 className="text-[14px] font-semibold text-foreground">{item.name}</h3>
                   </div>
-                  <span className="text-[13px] font-medium text-muted-foreground">{item.name}</span>
+                  <p className="text-[13px] leading-relaxed text-muted-foreground">{item.description}</p>
                 </div>
               ))}
             </div>
