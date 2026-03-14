@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { getToolBySlug } from "@/lib/tools";
@@ -7,11 +7,16 @@ import { EngagementCalculator, RPMCalculator } from "@/components/Calculators";
 
 const ToolPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
   const tool = getToolBySlug(slug || "");
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
 
-  if (!tool) return <Navigate to="/dashboard" replace />;
+  const from = (location.state as { from?: string })?.from;
+  const backTo = from === "/dashboard" ? "/dashboard" : "/";
+  const backLabel = from === "/dashboard" ? "Dashboard" : "Início";
+
+  if (!tool) return <Navigate to="/" replace />;
 
   const Icon = tool.icon;
   const isCalculator = tool.inputType === "custom";
@@ -30,11 +35,11 @@ const ToolPage = () => {
       <Header />
       <main className="relative z-10 mx-auto max-w-2xl px-6 py-8 lg:px-10 lg:py-10">
         <Link
-          to="/dashboard"
+          to={backTo}
           className="mb-6 inline-flex items-center gap-1.5 text-[13px] text-muted-foreground transition-colors duration-150 hover:text-foreground animate-fade-in"
         >
           <ArrowLeft size={14} />
-          Dashboard
+          {backLabel}
         </Link>
 
         <div className="flex items-center gap-3.5 animate-fade-in opacity-0 [animation-delay:60ms]">

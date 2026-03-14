@@ -74,6 +74,7 @@ const Index = () => {
                       <Link
                         key={tool.slug}
                         to={`/ferramenta/${tool.slug}`}
+                        state={{ from: "/" }}
                         className="group relative flex flex-col rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:bg-surface-hover hover:border-primary/20 hover:shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.12)] hover:-translate-y-0.5 animate-fade-in opacity-0"
                         style={{ animationDelay: `${140 + catIdx * 80 + i * 60}ms` }}
                       >
