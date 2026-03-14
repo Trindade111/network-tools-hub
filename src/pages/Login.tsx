@@ -13,7 +13,7 @@ const Login = () => {
       </div>
       <div className="relative z-10 w-full max-w-sm px-6 animate-scale-in">
         <Link to="/" className="mb-12 flex flex-col items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground shadow-[var(--gold-glow)]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold-300 to-gold-500 text-primary-foreground shadow-[0_0_24px_rgba(250,204,21,0.2)]">
             <span className="text-lg font-black">N</span>
           </div>
           <span className="text-sm font-semibold tracking-tight">
@@ -24,11 +24,11 @@ const Login = () => {
           </span>
         </Link>
 
-        <div className="rounded-xl border border-border bg-surface p-6">
-          <h1 className="text-center text-lg font-semibold tracking-tight">
+        <div className="rounded-2xl border border-border bg-surface p-7">
+          <h1 className="text-center text-lg font-bold tracking-tight">
             {isSignUp ? "Criar conta" : "Entrar na sua conta"}
           </h1>
-          <p className="mt-1 text-center text-[13px] text-muted-foreground">
+          <p className="mt-1.5 text-center text-[13px] text-muted-foreground">
             {isSignUp
               ? "Preencha seus dados para começar."
               : "Use seu e-mail e senha para acessar."}
@@ -41,7 +41,7 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder="Seu nome"
-                  className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
                 />
               </div>
             )}
@@ -50,7 +50,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="seu@email.com"
-                className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
+                className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
               />
             </div>
             <div>
@@ -66,7 +66,7 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 pr-10 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 pr-10 text-sm text-foreground placeholder:text-foreground/20 transition-all duration-150 focus:border-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/10"
                 />
                 <button
                   type="button"
@@ -79,14 +79,14 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className="w-full rounded-lg bg-gradient-to-r from-gold-300 to-gold-500 px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:shadow-[var(--gold-glow)] active:scale-[0.99]"
+              className="w-full rounded-xl bg-gradient-to-r from-gold-300 to-gold-500 px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_4px_24px_-4px_rgba(250,204,21,0.2)] transition-all duration-300 hover:shadow-[0_8px_32px_-4px_rgba(250,204,21,0.3)] active:scale-[0.99]"
             >
               {isSignUp ? "Criar conta" : "Entrar"}
             </button>
           </form>
 
-          <p className="mt-4 text-center text-[11px] text-muted-foreground/60">
-            Faça login para liberar uso ilimitado das ferramentas.
+          <p className="mt-5 text-center text-[11px] text-muted-foreground/50">
+            Faça login para liberar uso ilimitado e salvar seu histórico.
           </p>
 
           <div className="mt-4 text-center text-[13px] text-muted-foreground">
