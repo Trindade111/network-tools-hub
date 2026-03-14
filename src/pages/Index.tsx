@@ -9,10 +9,8 @@ const NETWORKING_CLUB_URL = "https://networkingclub.pro";
 const NETWORKING_CORTES_URL = "https://networkingcortes.com";
 
 const upcomingTools = [
-  { icon: Wand2, name: "IA para gerar hooks virais" },
-  { icon: MessageSquare, name: "Gerador de roteiros para cortes" },
-  { icon: Rocket, name: "IA que identifica momentos virais em vídeos" },
-  { icon: Lightbulb, name: "Ferramentas avançadas para criadores de conteúdo curto" },
+  { icon: MessageSquare, name: "Gerador de roteiros", description: "Ferramenta de inteligência artificial que gera roteiros automaticamente com base em um tema ou ideia." },
+  { icon: Wand2, name: "Pré-edição automática de vídeo", description: "Ferramenta que pré-edita vídeos automaticamente, identificando os melhores momentos, removendo pausas de fala e cortando partes desnecessárias ou duplicadas do vídeo para agilizar o processo de edição." },
 ];
 
 const Index = () => {
@@ -257,12 +255,15 @@ const Index = () => {
               {upcomingTools.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-center gap-3 rounded-xl border border-border/50 bg-background/50 p-4 transition-all duration-200 hover:border-primary/15 hover:bg-surface"
+                  className="flex flex-col gap-2.5 rounded-xl border border-border/50 bg-background/50 p-5 transition-all duration-200 hover:border-primary/15 hover:bg-surface"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/10 bg-primary/[0.05] text-primary/60">
-                    <item.icon size={16} />
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/10 bg-primary/[0.05] text-primary/60">
+                      <item.icon size={16} />
+                    </div>
+                    <h3 className="text-[14px] font-semibold text-foreground">{item.name}</h3>
                   </div>
-                  <span className="text-[13px] font-medium text-muted-foreground">{item.name}</span>
+                  <p className="text-[13px] leading-relaxed text-muted-foreground">{item.description}</p>
                 </div>
               ))}
             </div>
