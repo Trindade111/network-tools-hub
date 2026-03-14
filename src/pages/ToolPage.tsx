@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { getToolBySlug } from "@/lib/tools";
@@ -7,11 +7,16 @@ import { EngagementCalculator, RPMCalculator } from "@/components/Calculators";
 
 const ToolPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
   const tool = getToolBySlug(slug || "");
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
 
-  if (!tool) return <Navigate to="/dashboard" replace />;
+  const from = (location.state as { from?: string })?.from;
+  const backTo = from === "/dashboard" ? "/dashboard" : "/";
+  const backLabel = from === "/dashboard" ? "Dashboard" : "Início";
+
+  if (!tool) return <Navigate to="/" replace />;
 
   const Icon = tool.icon;
   const isCalculator = tool.inputType === "custom";
