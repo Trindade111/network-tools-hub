@@ -35,11 +35,11 @@ const ToolPage = () => {
       <Header />
       <main className="relative z-10 mx-auto max-w-2xl px-6 py-8 lg:px-10 lg:py-10">
         <Link
-          to="/dashboard"
+          to={backTo}
           className="mb-6 inline-flex items-center gap-1.5 text-[13px] text-muted-foreground transition-colors duration-150 hover:text-foreground animate-fade-in"
         >
           <ArrowLeft size={14} />
-          Dashboard
+          {backLabel}
         </Link>
 
         <div className="flex items-center gap-3.5 animate-fade-in opacity-0 [animation-delay:60ms]">
