@@ -65,6 +65,7 @@ const Dashboard = () => {
                         <Link
                           key={tool.slug}
                           to={`/ferramenta/${tool.slug}`}
+                          state={{ from: "/dashboard" }}
                           className="group flex items-center gap-3.5 rounded-2xl border border-border bg-surface p-4 transition-all duration-300 hover:bg-surface-hover hover:border-primary/20 hover:shadow-[0_4px_24px_-8px_hsl(var(--primary)/0.08)]"
                         >
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/15 bg-gradient-to-br from-primary/[0.1] to-primary/[0.03] text-primary transition-colors duration-200 group-hover:from-primary/[0.15]">
